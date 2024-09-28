@@ -1,0 +1,84 @@
+https://getbootstrap.com/docs/5.0/components/offcanvas/
+
+https://technext.github.io/jackson/
+
+https://demo.templatemonster.com/demo/112017.html
+
+
+
+side bar
+
+<!-- start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sidebar with Close Button</title>
+</head>
+<body>
+
+    <div id="main-content" class="main-content">
+        <button id="toggle-button">Open Sidebar</button>
+        <h1>Main Content Area</h1>
+        <p>This is where your main content goes.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- end -->
+<!-- start -->
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden; /* Prevent body scrolling when sidebar is open */
+}
+
+
+
+.main-content {
+    padding: 20px;
+    transition: opacity 0.3s ease; /* Animation for fading */
+}
+
+.main-content.overlay-active {
+    opacity: 0.5; /* Fade main content when sidebar is active */
+}
+
+button {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    float: right;
+}
+
+<!-- end -->
+
+<!-- start -->
+document.getElementById('toggle-button').addEventListener('click', function() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+
+    sidebar.classList.add('active');
+    mainContent.classList.add('overlay-active');
+});
+
+document.getElementById('close-button').addEventListener('click', function() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+
+    sidebar.classList.remove('active');
+    mainContent.classList.remove('overlay-active');
+});
+<!-- end -->

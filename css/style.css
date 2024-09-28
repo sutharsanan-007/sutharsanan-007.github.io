@@ -1,0 +1,55 @@
+*{font-family: "Poppins", sans-serif;}
+/* theme color */
+.txt-theme-color{color: #F05A7E;} 
+.theme-bg-color{background-color: #F05A7E;}
+.theme-bg-color-btn, .theme-bg-color-btn:hover {background-color: #F05A7E;color: #fff;}
+
+/* height */
+.height5px{height: 5px;}
+/* margin */
+.m-86px{margin: 86px;}
+/* text */
+.text-justify{text-align: justify;}
+/* border */
+.theme-border{border-bottom: 2px solid #F05A7E;}
+/* bg banner */
+.bg-img{background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('../images/bgimg.jpg');background-position: center;background-attachment: fixed;background-size: cover;background-repeat: no-repeat;width: 100%;height: 100vh;}
+/* mine img */
+.responsive-img {max-width: 100%;min-width: 310px;height: auto;}
+/* preloader */
+#preloader {position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: #000;color: #fff;z-index: 9999;display: flex;align-items: center;justify-content: center;flex-direction: column;}
+/* preloader animation loader */
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite;
+  }
+  
+  @keyframes animloader {
+    0% {
+      box-shadow: -72px 0 #FFF inset;
+    }
+    100% {
+      box-shadow: 48px 0 #FFF inset;
+    }
+  }
+      
+/* nav onscroll add background color change */
+#navbar {transition: background-color 0.3s ease;}.bg-scrolled {background-color: #343a40 !important;}
+/* icon distance */
+.nav-icon{width: 30px;text-align: center;}
+
+.offcanvas {
+    transition: transform 0.3s ease;
+}
+
+.offcanvas-start {
+    transform: translateX(-100%); /* Initially offscreen */
+}
+
+.offcanvas.show {
+    transform: translateX(0); /* Move to visible position */
+}

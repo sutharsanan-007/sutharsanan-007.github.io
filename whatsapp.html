@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Form Redirect</title>
+    <script>
+        function redirectToWhatsApp(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            // Encode values for URL
+            const encodedName = encodeURIComponent(name);
+            const encodedMessage = encodeURIComponent(message);
+
+            // Construct WhatsApp URL
+            const whatsappURL = `https://api.whatsapp.com/send?phone=8220224143&text=Name:%20${encodedName}%0AMessage:%20${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.location.href = whatsappURL;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contact Us via WhatsApp</h1>
+    <form onsubmit="redirectToWhatsApp(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <button type="submit">Send to WhatsApp</button>
+    </form>
+</body>
+</html>
