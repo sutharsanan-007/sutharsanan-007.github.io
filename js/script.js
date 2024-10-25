@@ -156,31 +156,32 @@ const skillsData = [
 
 
 
-function redirectToEmail(){
-    validation = 0
+function redirectToEmail() {
+    let validation = 0;
     $(".form-values").removeClass("border border-danger");
 
     var name = $("#name").val().trim();
     var email = $("#email").val().trim();
     var phone = $("#phone").val().trim();
     var message = $("#message").val().trim();
-    if(name == ""){
+
+    if (name == "") {
         $("#name").addClass("border border-danger");
-        validation = 1
+        validation = 1;
     }
-    if(email == ""){
+    if (email == "") {
         $("#email").addClass("border border-danger");
-        validation = 1
+        validation = 1;
     }
-    if(phone == ""){
+    if (phone == "") {
         $("#phone").addClass("border border-danger");
-        validation = 1
+        validation = 1;
     }
-    if(message == ""){
+    if (message == "") {
         $("#message").addClass("border border-danger");
-        validation = 1
+        validation = 1;
     }
-    if(validation == 1){
+    if (validation == 1) {
         return false;
     }
 
@@ -190,9 +191,11 @@ function redirectToEmail(){
     const encodedMessage = encodeURIComponent(message);
 
     const emailSubject = 'Contact Form Submission';
-    // const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0AMessage: ${encodedMessage}`;
     const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0AMessage: ${encodedMessage}`;
     const mailtoURL = `mailto:sutharsanan100@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+
+    console.log("Phone number:", phone);
+    console.log("Mailto URL:", mailtoURL);
 
     window.location.href = mailtoURL;
 }
