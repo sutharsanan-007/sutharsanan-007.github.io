@@ -186,10 +186,12 @@ function redirectToEmail(){
 
     const encodedName = encodeURIComponent(name);
     const encodedEmail = encodeURIComponent(email);
+    const encodedPhone = encodeURIComponent(phone);
     const encodedMessage = encodeURIComponent(message);
 
     const emailSubject = 'Contact Form Submission';
-    const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0AMessage: ${encodedMessage}`;
+    // const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0AMessage: ${encodedMessage}`;
+    const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0AMessage: ${encodedMessage}`;
     const mailtoURL = `mailto:sutharsanan100@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
 
     window.location.href = mailtoURL;
