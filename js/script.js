@@ -87,7 +87,7 @@ const educationData = [
   
     educationData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'col-12 col-sm-12 col-md-10 col-lg-6 card p-4 mb-4';
+      card.className = 'col-12 col-sm-12 col-md-10 col-lg-6 border p-4 mb-4';
   
       card.innerHTML = `
         <p><span class="badge theme-bg-color">${item.period}</span></p>
@@ -127,19 +127,19 @@ const skillsData = [
   function appendSkillsSection() {
     const container = document.getElementById('skills-section').querySelector('.row.justify-content-center');
   
-    skillsData.forEach(skill => {
+    skillsData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'col-12 col-sm-8 col-md-4 col-lg-3 card py-2 m-1';
+      card.className = 'col-12 col-sm-8 col-md-4 col-lg-3 border py-2 m-1';
   
       card.innerHTML = `
         <div class="row">
           <div class="col-3">
-            <img src="${skill.image}" alt="${skill.name}" width="50">
+            <img src="${item.image}" alt="${item.name}" width="50" class="center-img-auto">
           </div>
           <div class="col-9">
-            <p>${skill.name}</p>
+            <p>${item.name}</p>
             <div class="progress height5px">
-              <div class="progress-bar theme-bg-color" role="progressbar" style="width: ${skill.proficiency}%" aria-valuenow="${skill.proficiency}"
+              <div class="progress-bar theme-bg-color" role="progressbar" style="width: ${item.proficiency}%" aria-valuenow="${item.proficiency}"
                 aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
@@ -154,34 +154,60 @@ const skillsData = [
 
 //   skills dynamic div end
 
+//  what i do dynamic div start
+
+  const whatidoData = [
+    {name: 'Web Development', image: 'images/web_dev.svg', desc: 'Web development involves creating and maintaining websites, ensuring they are user-friendly and visually appealing. It combines coding, design, and problem-solving skills to deliver an engaging online experience.'},
+    {name: 'App Development', image: 'images/app_dev.svg', desc: 'App development is the process of creating software applications for mobile devices or desktops, focusing on functionality and user experience. It encompasses design, coding, testing, and deployment.'},
+    {name: 'Ui Development', image: 'images/ui_dev.svg', desc: 'Ui development focuses on designing and implementing the visual elements of a software application, ensuring an intuitive and engaging user experience. It involves creating layouts, selecting color schemes.'},
+    {name: 'Third-Party Integration', image: 'images/game.svg', desc: 'Third-party integration, such as payment gateways, allows applications to securely process transactions and facilitate online payments. This enables businesses to streamline their checkout processes.'}
+  ]
+  function appendWhatIDoSection() {
+    const container = document.getElementById('whatido-section').querySelector('.row.justify-content-center');
+
+    whatidoData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'col-12 col-sm-8 col-md-5 col-lg-3 border p-0 p-4 m-1';
+
+      card.innerHTML = `
+          <img src="${item.image}" alt="" class="center-img-auto mb-3" width="100">
+          <h3 class="mb-3">${item.name}</h3>
+          <p>${item.desc}</p>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  appendWhatIDoSection()
+//  what i do dynamic div end
 
 
-function redirectToEmail() {
-    let validation = 0;
+function redirectToEmail(){
+    validation = 0
     $(".form-values").removeClass("border border-danger");
 
     var name = $("#name").val().trim();
     var email = $("#email").val().trim();
     var phone = $("#phone").val().trim();
     var message = $("#message").val().trim();
-
-    if (name == "") {
+    if(name == ""){
         $("#name").addClass("border border-danger");
-        validation = 1;
+        validation = 1
     }
-    if (email == "") {
+    if(email == ""){
         $("#email").addClass("border border-danger");
-        validation = 1;
+        validation = 1
     }
-    if (phone == "") {
+    if(phone == ""){
         $("#phone").addClass("border border-danger");
-        validation = 1;
+        validation = 1
     }
-    if (message == "") {
+    if(message == ""){
         $("#message").addClass("border border-danger");
-        validation = 1;
+        validation = 1
     }
-    if (validation == 1) {
+    if(validation == 1){
         return false;
     }
 
@@ -193,9 +219,6 @@ function redirectToEmail() {
     const emailSubject = 'Contact Form Submission';
     const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0AMessage: ${encodedMessage}`;
     const mailtoURL = `mailto:sutharsanan100@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
-
-    console.log("Phone number:", phone);
-    console.log("Mailto URL:", mailtoURL);
 
     window.location.href = mailtoURL;
 }

@@ -27,9 +27,9 @@ body.no-scroll {
   bottom: 0;
   left: 0;
   color: #000;
-  background-color: #fff; /* New background color on hover */
+  background-color: #fff;
   transition: right 0.4s ease;
-  z-index: 0; /* Behind the text */
+  z-index: 0;
 }
 
 .hover-button:hover::before {
@@ -37,12 +37,12 @@ body.no-scroll {
 }
 
 .hover-button:hover {
-  color: #000; /* Change text color on hover */
+  color: #000;
 }
 
 .hover-button span {
   position: relative;
-  z-index: 1; /* Above the background */
+  z-index: 1;
 }
 /* custom side nav */
 .nav-bar {
@@ -53,13 +53,13 @@ body.no-scroll {
   width: 320px;
   background: #343a40;
   color: white;
-  transform: translateX(-320px); /* Start hidden */
-  transition: transform 0.3s ease; /* Transition for opening and closing */
-  z-index: 1001; /* Ensure nav bar is above backdrop */
+  transform: translateX(-320px); 
+  transition: transform 0.3s ease; 
+  z-index: 1001;
 }
 
 .nav-bar.open {
-  transform: translateX(0); /* Move into view */
+  transform: translateX(0);
 }
 
 .nav-bar h2 {
@@ -107,15 +107,15 @@ body.no-scroll {
   height: 100vh;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
-  opacity: 0; /* Start hidden */
-  visibility: hidden; /* Prevent clicks when hidden */
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease;
-  z-index: 1000; /* Behind the nav bar */
+  z-index: 1000;
 }
 
 .backdrop.open {
-  opacity: 1; /* Show backdrop */
-  visibility: visible; /* Allow clicks when visible */
+  opacity: 1;
+  visibility: visible; 
 }
 
 /* theme color */
@@ -264,7 +264,7 @@ body.no-scroll {
 
 /* margin */
 .m-86px {
-  margin: 86px;
+  margin: 86px 0;
 }
 .margin-b-form-field{
   margin-bottom: 30px;
@@ -278,7 +278,13 @@ body.no-scroll {
 .theme-border {
   border-bottom: 2px solid #F05A7E;
 }
-
+.center-img-auto{
+  margin: auto;
+  display: block;
+}
+.h-133px{
+  height: 133px;
+}
 /* bg banner */
 .bg-img {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/bgimg.jpg');
