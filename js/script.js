@@ -195,7 +195,7 @@ const skillsData = [
   ];
   function appendProjectsSection() {
     const container = document.getElementById('projects-section').querySelector('.row.justify-content-center');
-
+   console.log("hi")
     projectsData.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card col-12 col-sm-10 col-md-5 col-lg-5 border rounded-0 p-0 m-1';
