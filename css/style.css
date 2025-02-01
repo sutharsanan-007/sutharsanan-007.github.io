@@ -450,3 +450,36 @@ body.no-scroll {
 @media print {
   /* CSS styles for print */
 }
+
+/* For devices with width 320px and below */
+@media (max-width: 320px) {
+    .project-img {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* For devices between 321px and 768px */
+@media (min-width: 321px) and (max-width: 768px) {
+    .project-img {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+/* For devices between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .project-img {
+        width: 100%;
+        height: 230px;
+    }
+}
+
+/* For devices between 1025px and 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .project-img {
+        width: 100%;
+        height: 265px;
+    }
+}
+
