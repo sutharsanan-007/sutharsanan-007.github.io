@@ -201,7 +201,7 @@ const skillsData = [
       card.className = 'card col-12 col-sm-10 col-md-5 col-lg-5 border rounded-0 p-0 m-1';
 
       card.innerHTML = `
-        <img src="${item.image}" class="project-img rounded-0 card-img-top" alt="${item.title}">
+        <img src="${item.image}" class="project-img rounded-0 object-fit-cover card-img-top" alt="${item.title}">
         <div class="card-body">
           <h4 class="card-title">${item.title}</h4>
           <p class="card-text">Skills: ${item.skills}</p>
