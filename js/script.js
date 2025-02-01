@@ -154,6 +154,68 @@ const skillsData = [
 
 //   skills dynamic div end
 
+// projects dynamic div start
+  const projectsData = [
+    {
+      image: 'images/projects/arambam_school.png',
+      title: 'Arambam School',
+      skills: 'Html, Css, Js, JQuery, Php, Mysql',
+      description: 'High quality education to children in need to make a step change difference in their educational attainment and future prospects.'
+    },
+    {
+      image: 'images/projects/cumi_careers.png',
+      title: 'Cumi Careers',
+      skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
+      description: 'Join our team and build a career that inspires growth and innovation. Explore exciting opportunities and make an impact in a dynamic work environment!'
+    },
+    {
+      image: 'images/projects/decso_plus.png',
+      title: 'Decso Plus',
+      skills: 'Html, Css, Typescript, Angular, Ionic, Laravel, Mysql',
+      description: 'Dental doctor service provides comprehensive patient care through qualified dental professionals, including junior doctor, BDS duty doctor and MDS consultant.'
+    },
+    {
+      image: 'images/projects/eo_coimbatore.png',
+      title: 'Eo Coimbatore',
+      skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql, Atom Aes',
+      description: 'EO - Coimbatore chapter is a relatively young chapter and is about 80 members strong. For a small brief about Coimbatore chapter - The total member company sales of the coimbatore.'
+    },
+    {
+      image: 'images/projects/sri_lalitam.png',
+      title: 'Sri Lalitam',
+      skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql, Razor pay',
+      description: 'Shop the latest trends and exclusive deals, all from the comfort of your home. Experience fast, secure checkout and fast delivery on every order!'
+    },
+    {
+      image: 'images/projects/supportive_souls.png',
+      title: 'Supportive Souls',
+      skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
+      description: 'Supportive Souls is a growing network of like minded individuals dedicated to making a positive impact on the world through our various charitable initiatives.'
+    }
+  ];
+  function appendProjectsSection() {
+    const container = document.getElementById('projects-section').querySelector('.row.justify-content-center');
+
+    projectsData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card col-12 col-sm-10 col-md-5 col-lg-5 border rounded-0 p-0 m-1';
+
+      card.innerHTML = `
+        <img src="${item.image}" class="project-img rounded-0 card-img-top" alt="${item.title}">
+        <div class="card-body">
+          <h4 class="card-title">${item.title}</h4>
+          <p class="card-text">Skills: ${item.skills}</p>
+          <p>${item.description}</p>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+  appendProjectsSection()
+
+// project section end
+
 //  what i do dynamic div start
 
   const whatidoData = [
