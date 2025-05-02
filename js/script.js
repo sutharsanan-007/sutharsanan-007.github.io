@@ -1,10 +1,11 @@
-$(window).on('load', function() {
-   setTimeout(() => {
-    $('#preloader').fadeOut('slow', function() {
-        $('#content').fadeIn('slow');
-    });
-   }, 1000);
-});
+const preloader = document.querySelector('#preloader');
+if (preloader) {
+  window.addEventListener('load', () => {
+    preloader.classList.add('slide-up');
+    preloader.remove();
+  });
+}
+new WOW().init();
 $(document).ready(function () {
     showNavbar()
     $(window).on('scroll', function() {  
@@ -20,6 +21,26 @@ $(document).ready(function () {
         }, 600);
         closeNav()
     });
+    $("#currentYear").html(new Date().getFullYear())
+});
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active-nav");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active-nav");
+    }
+  });
 });
 function showNavbar(){
     if ($(window).scrollTop() > 50) {
@@ -51,6 +72,11 @@ closeBtn.addEventListener("click", closeNav);
 backdrop.addEventListener("click", closeNav);
 
 // end 
+
+VanillaTilt.init(document.querySelector(".responsive-img"), {
+  glare: true,
+  maxGlare: .5
+});
 
 // education div dynamic start
 
@@ -87,13 +113,13 @@ const educationData = [
   
     educationData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'col-12 col-sm-12 col-md-10 col-lg-6 border p-4 mb-4';
+      card.className = 'mb-5 position-relative wow animate__animated animate__fadeInUp';
   
       card.innerHTML = `
-        <p><span class="badge theme-bg-color">${item.period}</span></p>
-        <h3>${item.degree}</h3>
-        <h5>${item.institution}</h5>
-        <p>${item.result}</p>
+        <span class="position-absolute rounded-circle-position translate-middle p-2 bg-white border border-3 border-theme-color rounded-circle"></span>
+        <h5 class="fw-bold">${item.degree}</h5>
+        <div class="fw-bold mb-1">${item.period}</div>
+        <div class="fst-italic text-muted mb-2">${item.institution}</div>
       `;
   
       container.appendChild(card);
@@ -101,8 +127,52 @@ const educationData = [
   }
   
   appendEducationSection();
+  
 
 //   education div dynamic end
+
+// experience div dynamic start
+
+const experienceData = [
+  {
+    company_name: "ANGLER Technologies",
+    role: "Software Engineer & Project Lead",
+    location: "Coimbatore, Tamil Nadu, india - Onsite",
+    period: "Full-time, Aug 2024 - Present",
+    responsibilities: "Led end-to-end development of two projects as Project Lead, including seamless integration of Razorpay (Collect Now) payment gateway, leveraging technologies such as HTML, CSS, JavaScript, jQuery, Bootstrap, PHP, MySQLi, and MSSQL, and also served as a Software Engineer, providing ongoing support, maintenance, and feature enhancements for multiple client projects."
+  },
+  {
+    company_name: "dsignz media",
+    role: "Web & App Developer",
+    location: "Coimbatore, Tamil Nadu, india - Onsite",
+    period: "Full-time, Dec 2022 - Jul 2024",
+    responsibilities: "Developed responsive web and mobile applications using HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, and Ionic. Implemented backend functionality with PHP, Laravel, and MySQLi while managing client communications to gather requirements, provide updates, and ensure successful project delivery."
+  },
+];
+
+function appendExperienceSection() {
+  const container = document.getElementById('experience-section').querySelector('.d-flex');
+
+  experienceData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'mb-5 position-relative wow animate__animated animate__fadeInUp';
+
+    card.innerHTML = `
+      <span class="position-absolute rounded-circle-position translate-middle p-2 bg-white border border-3 border-theme-color rounded-circle"></span>
+      <h5 class="fw-bold">${item.company_name}</h5>
+      <div class="fw-bold mb-1">${item.role}</div>
+      <div class="mb-1">${item.period}</div>
+      <div class="fst-italic text-muted mb-1">${item.location}</div>
+      <p>${item.responsibilities}</p>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+appendExperienceSection();
+
+// experience div dynamic end
 
 // skills dynamic div start
 
@@ -125,18 +195,16 @@ const skillsData = [
   ];
   
   function appendSkillsSection() {
-    const container = document.getElementById('skills-section').querySelector('.row.justify-content-center');
+    const container = document.getElementById('skills-section').querySelector('.row.justify-content-evenly.gy-4');
   
     skillsData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'col-12 col-sm-8 col-md-4 col-lg-3 border py-2 m-1';
+      card.className = 'col-lg-3 col-md-4 wow animate__animated animate__fadeInUp';
   
       card.innerHTML = `
-        <div class="row">
-          <div class="col-3">
-            <img src="${item.image}" alt="${item.name}" width="50" class="center-img-auto">
-          </div>
-          <div class="col-9">
+        <div class="d-flex align-items-center border-0 shadow-sm rounded p-3">
+          <img src="${item.image}" alt="${item.name}" width="70" class="pe-3">
+          <div class="d-flex flex-column w-100">
             <p>${item.name}</p>
             <div class="progress height5px">
               <div class="progress-bar theme-bg-color" role="progressbar" style="width: ${item.proficiency}%" aria-valuenow="${item.proficiency}"
@@ -195,23 +263,25 @@ const skillsData = [
   ];
   function appendProjectsSection() {
     const container = document.getElementById('projects-section').querySelector('.row.justify-content-center');
-   console.log("hi")
+  
     projectsData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'card col-12 col-sm-10 col-md-5 col-lg-5 border rounded-0 p-0 m-1';
-
+      card.className = 'col-12 col-sm-10 col-md-12 col-lg-6 wow animate__animated animate__fadeInUp';
+  
       card.innerHTML = `
-        <img src="${item.image}" class="project-img rounded-0 object-fit-cover card-img-top" alt="${item.title}">
-        <div class="card-body">
-          <h4 class="card-title">${item.title}</h4>
-          <p class="card-text">Skills: ${item.skills}</p>
-          <p>${item.description}</p>
+        <div class="card border rounded-0 p-0 position-relative overflow-hidden project-card">
+          <img src="${item.image}" class="project-img rounded-0 w-100" alt="${item.title}">
+          <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center px-3">
+            <h4 class="mb-2">${item.title}</h4>
+            <p class="mb-2 small">${item.description}</p>
+            <p class="small">Technologies: ${item.skills}</p>
+          </div>
         </div>
       `;
-
+  
       container.appendChild(card);
     });
-  }
+  }  
   appendProjectsSection()
 
 // project section end
@@ -219,33 +289,37 @@ const skillsData = [
 //  what i do dynamic div start
 
   const whatidoData = [
-    {name: 'Web Development', image: 'images/web_dev.svg', desc: 'Web development involves creating and maintaining websites, ensuring they are user-friendly and visually appealing. It combines coding, design, and problem-solving skills to deliver an engaging online experience.'},
-    {name: 'App Development', image: 'images/app_dev.svg', desc: 'App development is the process of creating software applications for mobile devices or desktops, focusing on functionality and user experience. It encompasses design, coding, testing, and deployment.'},
-    {name: 'Ui Development', image: 'images/ui_dev.svg', desc: 'Ui development focuses on designing and implementing the visual elements of a software application, ensuring an intuitive and engaging user experience. It involves creating layouts, selecting color schemes.'},
-    {name: 'Third-Party Integration', image: 'images/game.svg', desc: 'Third-party integration, such as payment gateways, allows applications to securely process transactions and facilitate online payments. This enables businesses to streamline their checkout processes.'}
+    {name: 'Web Development', image: 'images/web_dev.svg', desc: 'Web development is the process of building and maintaining websites or web applications, focusing on coding, functionality, and user interaction.'},
+    {name: 'App Development', image: 'images/app_dev.svg', desc: 'App development is the process of creating software applications for mobile or desktop platforms, focusing on functionality, user experience, and performance.'},
+    {name: 'Web Design', image: 'images/ui_dev.svg', desc: 'Web design is the art of planning and creating the layout, visual appearance, and usability of a website to ensure it’s attractive and user-friendly.'},
+    {name: 'Payment Gateway', image: 'images/game.svg', desc: 'A payment gateway is an online service that authorizes and processes payments for e-commerce transactions, ensuring secure and smooth transactions between buyers and sellers.'}
   ]
   function appendWhatIDoSection() {
-    const container = document.getElementById('whatido-section').querySelector('.row.justify-content-center');
-
+    const container = document.getElementById('whatido-section').querySelector('.row.justify-content-evenly.gy-4');
+  
     whatidoData.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'col-12 col-sm-8 col-md-5 col-lg-3 border p-0 p-4 m-1';
-
+      card.className = 'col-lg-3 col-md-5 d-flex wow animate__animated animate__fadeInUp';
+  
       card.innerHTML = `
-          <img src="${item.image}" alt="" class="center-img-auto mb-3" width="100">
-          <h3 class="mb-3">${item.name}</h3>
-          <p>${item.desc}</p>
+        <div class="card flex-fill text-center p-3 border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-start">
+            <img src="${item.image}" alt="${item.name}" class="mb-3 mx-auto" width="100">
+            <h5 class="mb-3">${item.name}</h5>
+            <p class="text-muted">${item.desc}</p>
+          </div>
+        </div>
       `;
-
+  
       container.appendChild(card);
     });
-  }
+  }  
 
   appendWhatIDoSection()
 //  what i do dynamic div end
 
 
-function redirectToEmail(){
+  function redirectToEmail(){
     validation = 0
     $(".form-values").removeClass("border border-danger");
 
@@ -283,4 +357,85 @@ function redirectToEmail(){
     const mailtoURL = `mailto:sutharsanan100@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
 
     window.location.href = mailtoURL;
-}
+  }
+  toastr.options = {
+    "positionClass": "toast-bottom-center",
+    "timeOut": "3000"
+  };
+
+  function showSuccess(content) {
+    toastr.success(content, 'Success');
+  }
+ 
+
+  function showInfo(content) {
+    toastr.info(content, 'Info');
+  }
+
+  function showWarning(content) {
+    toastr.warning(content, 'Warning');
+  }
+
+  function showError(content) {
+    toastr.error(content, 'Error');
+  }
+  function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+  function redirectToWhatsApp() {
+    let validation = 0;
+    $(".form-values").removeClass("border border-danger");
+
+    var name = $("#name").val().trim();
+    var email = $("#email").val().trim();
+    var phone = $("#phone").val().trim();
+    var message = $("#message").val().trim();
+
+    if (name == "") {
+      var message = 'Name is required';
+      showError(message);
+      return false
+    }
+    if (email == "") {
+      var message = 'Email is required';
+      showError(message);
+      return false
+    }
+    if(email != ''){
+      if (!isValidEmail(email)) {
+        var message = 'Invalid email address';
+        showError(message);
+        return false
+      }
+    }
+    if (phone == "") {
+      var message = 'Phone Number is required';
+      showError(message);
+      return false
+    }
+    if (message == "") {
+      var message = 'Message is required';
+      showError(message);
+      return false
+    }
+
+    // Get time-based greeting
+    const hour = new Date().getHours();
+    let greeting = "Hello";
+    if (hour >= 5 && hour < 12) {
+        greeting = "Good morning";
+    } else if (hour >= 12 && hour < 17) {
+        greeting = "Good afternoon";
+    } else if (hour >= 17 && hour <= 22) {
+        greeting = "Good evening";
+    }
+
+    const whatsappNumber = "8220224143"; // Replace with your WhatsApp number
+    const textMessage = `${greeting} Sutharsanan, My name is ${name}, I’m reaching out regarding: ${message}. You can contact me at: Phone: ${phone},Email: ${email}`;
+
+    const encodedMessage = encodeURIComponent(textMessage);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+  }
