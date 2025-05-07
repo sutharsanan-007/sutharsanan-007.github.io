@@ -5,7 +5,7 @@ if (preloader) {
     preloader.remove();
   });
 }
-new WOW().init();
+
 $(document).ready(function () {
     showNavbar()
     $(window).on('scroll', function() {  

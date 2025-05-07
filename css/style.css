@@ -1,9 +1,18 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+body, html {
+  overflow-x: hidden;
+}
 body.no-scroll {
   overflow: hidden; /* Prevent scrolling */
 }
+.wow {
+  will-change: transform;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .hover-button {
   position: relative;
   padding: 15px 30px;
