@@ -73,10 +73,10 @@ backdrop.addEventListener("click", closeNav);
 
 // end 
 
-VanillaTilt.init(document.querySelector(".responsive-img"), {
-  glare: true,
-  maxGlare: .5
-});
+// VanillaTilt.init(document.querySelector(".responsive-img"), {
+//   glare: true,
+//   maxGlare: .5
+// });
 
 // education div dynamic start
 
@@ -135,10 +135,17 @@ const educationData = [
 
 const experienceData = [
   {
+    company_name: "AIREI India Pvt Ltd",
+    role: "Software Engineer",
+    location: "Coimbatore, Tamil Nadu, india - Onsite",
+    period: "Full-time, Feb 2025 - Present",
+    responsibilities: "Specialized in designing and developing high-performance hybrid mobile applications using the Ionic framework, Angular, and TypeScript. Proven expertise in building scalable cross-platform solutions for iOS and Android, with seamless integration of RESTful APIs and native functionalities via Cordova/Capacitor and full-cycle deployment to the Apple App Store and Google Play Store."
+  },
+  {
     company_name: "ANGLER Technologies",
     role: "Software Engineer & Project Lead",
     location: "Coimbatore, Tamil Nadu, india - Onsite",
-    period: "Full-time, Aug 2024 - Present",
+    period: "Full-time, Aug 2024 - Jan 2025",
     responsibilities: "Led end-to-end development of two projects as Project Lead, including seamless integration of Razorpay (Collect Now) payment gateway, leveraging technologies such as HTML, CSS, JavaScript, jQuery, Bootstrap, PHP, MySQLi, and MSSQL, and also served as a Software Engineer, providing ongoing support, maintenance, and feature enhancements for multiple client projects."
   },
   {
@@ -259,6 +266,18 @@ const skillsData = [
       title: 'Supportive Souls',
       skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
       description: 'Supportive Souls is a growing network of like minded individuals dedicated to making a positive impact on the world through our various charitable initiatives.'
+    },
+    {
+      image: 'images/projects/pkps.jpg',
+      title: 'PKPS',
+      skills: 'Html, Css, Typescript, Angular, Ionic',
+      description: 'Developed a project management system to streamline task assignment, tracking, and collaboration. Implemented role-based access, real-time updates.'
+    },
+    {
+      image: 'images/projects/my_palm_mill.jpg',
+      title: 'MyPalm Mill',
+      skills: 'Html, Css, Typescript, Angular, Ionic',
+      description: 'The system integrates modules like Grading & Weighbridge, Production, Maintenance, Laboratory, Supply Chain, and Traceability, providing real-time data insights.'
     }
   ];
   function appendProjectsSection() {
