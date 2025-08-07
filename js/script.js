@@ -1,11 +1,3 @@
-// const preloader = document.querySelector('#preloader');
-// if (preloader) {
-//   window.addEventListener('load', () => {
-//     preloader.classList.add('slide-up');
-//     preloader.remove();
-//   });
-// }
-
 $(document).ready(function () {
     showNavbar()
     $(window).on('scroll', function() {  
@@ -23,6 +15,7 @@ $(document).ready(function () {
     });
     $("#currentYear").html(new Date().getFullYear())
 });
+
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
@@ -42,6 +35,7 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
 function showNavbar(){
     if ($(window).scrollTop() > 50) {
         $('#navbar').addClass('bg-scrolled');
@@ -49,6 +43,7 @@ function showNavbar(){
         $('#navbar').removeClass('bg-scrolled');
     }
 }
+
 const navBar = document.querySelector(".nav-bar");
 const backdrop = document.querySelector(".backdrop");
 const toggleBtn = document.querySelector(".toggle-btn");
@@ -128,8 +123,7 @@ const educationData = [
   
   appendEducationSection();
   
-
-//   education div dynamic end
+//  education div dynamic end
 
 // experience div dynamic start
 
@@ -227,9 +221,10 @@ const skillsData = [
   
   appendSkillsSection();
 
-//   skills dynamic div end
+// skills dynamic div end
 
 // projects dynamic div start
+
   const projectsData = [
     {
       image: 'images/projects/arambam_school.png',
@@ -280,6 +275,7 @@ const skillsData = [
       description: 'The system integrates modules like Grading & Weighbridge, Production, Maintenance, Laboratory, Supply Chain, and Traceability, providing real-time data insights.'
     }
   ];
+
   function appendProjectsSection() {
     const container = document.getElementById('projects-section').querySelector('.row.justify-content-center');
   
@@ -305,14 +301,15 @@ const skillsData = [
 
 // project section end
 
-//  what i do dynamic div start
+// what i do dynamic div start
 
   const whatidoData = [
-    {name: 'Web Development', image: 'images/web_dev.svg', desc: 'Web development is the process of building and maintaining websites or web applications, focusing on coding, functionality, and user interaction.'},
-    {name: 'App Development', image: 'images/app_dev.svg', desc: 'App development is the process of creating software applications for mobile or desktop platforms, focusing on functionality, user experience, and performance.'},
-    {name: 'Web Design', image: 'images/ui_dev.svg', desc: 'Web design is the art of planning and creating the layout, visual appearance, and usability of a website to ensure it’s attractive and user-friendly.'},
-    {name: 'Payment Gateway', image: 'images/game.svg', desc: 'A payment gateway is an online service that authorizes and processes payments for e-commerce transactions, ensuring secure and smooth transactions between buyers and sellers.'}
+    { name: 'Web Development', image: 'images/web_dev.svg', desc: 'Web development is the process of building and maintaining websites or web applications, focusing on coding, functionality, and user interaction.'},
+    { name: 'App Development', image: 'images/app_dev.svg', desc: 'App development is the process of creating software applications for mobile or desktop platforms, focusing on functionality, user experience, and performance.'},
+    { name: 'Web Design', image: 'images/ui_dev.svg', desc: 'Web design is the art of planning and creating the layout, visual appearance, and usability of a website to ensure it’s attractive and user-friendly.'},
+    { name: 'Payment Gateway', image: 'images/game.svg', desc: 'A payment gateway is an online service that authorizes and processes payments for e-commerce transactions, ensuring secure and smooth transactions between buyers and sellers.'}
   ]
+
   function appendWhatIDoSection() {
     const container = document.getElementById('whatido-section').querySelector('.row.justify-content-evenly.gy-4');
   
@@ -335,48 +332,9 @@ const skillsData = [
   }  
 
   appendWhatIDoSection()
-//  what i do dynamic div end
 
+// what i do dynamic div end
 
-  function redirectToEmail(){
-    validation = 0
-    $(".form-values").removeClass("border border-danger");
-
-    var name = $("#name").val().trim();
-    var email = $("#email").val().trim();
-    var phone = $("#phone").val().trim();
-    var message = $("#message").val().trim();
-    if(name == ""){
-        $("#name").addClass("border border-danger");
-        validation = 1
-    }
-    if(email == ""){
-        $("#email").addClass("border border-danger");
-        validation = 1
-    }
-    if(phone == ""){
-        $("#phone").addClass("border border-danger");
-        validation = 1
-    }
-    if(message == ""){
-        $("#message").addClass("border border-danger");
-        validation = 1
-    }
-    if(validation == 1){
-        return false;
-    }
-
-    const encodedName = encodeURIComponent(name);
-    const encodedEmail = encodeURIComponent(email);
-    const encodedPhone = encodeURIComponent(phone);
-    const encodedMessage = encodeURIComponent(message);
-
-    const emailSubject = 'Contact Form Submission';
-    const emailBody = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0AMessage: ${encodedMessage}`;
-    const mailtoURL = `mailto:sutharsanan100@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
-
-    window.location.href = mailtoURL;
-  }
   toastr.options = {
     "positionClass": "toast-bottom-center",
     "timeOut": "3000"
@@ -386,7 +344,6 @@ const skillsData = [
     toastr.success(content, 'Success');
   }
  
-
   function showInfo(content) {
     toastr.info(content, 'Info');
   }
@@ -398,10 +355,12 @@ const skillsData = [
   function showError(content) {
     toastr.error(content, 'Error');
   }
+
   function isValidEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   }
+  
   function redirectToWhatsApp() {
     let validation = 0;
     $(".form-values").removeClass("border border-danger");
