@@ -260,12 +260,36 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
 
     <!-- Initialize WOW.js -->
-    <script>
+<!--     <script>
         new WOW().init();
+    </script> -->
+
+    <script>
+        const preloader = document.querySelector('#preloader');
+
+        window.addEventListener('load', () => {
+            if (preloader) {
+                // Start preloader slide-up animation
+                // preloader.classList.add('slide-up');
+
+                // Wait for animation to finish before removing preloader & starting WOW
+                setTimeout(() => {
+                    preloader.remove();
+
+                    // Now initialize WOW.js
+                    new WOW().init();
+                }, 600); // 600ms = should match your CSS transition time
+            } else {
+                // If no preloader exists, just initialize WOW
+                new WOW().init();
+            }
+        });
+
     </script>
 
     <!-- Your Custom JS -->
     <script src="js/script.js"></script>
     
 </body>
+
 </html>
