@@ -262,22 +262,24 @@
                     the success of an innovative company. Committed to delivering high-quality code, fostering
                     collaborative environments, and staying abreast of industry trends.`;
 
-        document.title = myName;
         $(".my_name").text(myName)
         $(".my_role_fname").text(myRoleFname)
         $(".my_role_lname").text(myRoleLname)
         $(".my_objectives").text(myObjectives)
         window.addEventListener('load', () => {
             if (preloader) {
+                document.title = "Please wait...";
                 // Start preloader slide-up animation
                 // preloader.classList.add('slide-up');
                 setTimeout(() => {
                     preloader.remove();
+                    document.title = myName;
                     // Now initialize WOW.js
                     new WOW().init();
                 }, 600); // 600ms = should match your CSS transition time
             } else {
                 // If no preloader exists, just initialize WOW
+                document.title = myName;
                 new WOW().init();
             }
         });
