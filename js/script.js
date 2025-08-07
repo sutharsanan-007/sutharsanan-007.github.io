@@ -457,5 +457,4 @@ const skillsData = [
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(whatsappURL, '_blank');
-
   }
