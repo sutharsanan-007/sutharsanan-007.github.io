@@ -22,19 +22,19 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/mine.jpeg" type="image/x-icon">
 
-    <title>SUTHARSANAN</title>
+    <title></title>
 </head>
 
 <body>
     <div id="preloader">
-        <h1 class="banner-text poppins-medium">SUTHARSANAN</h1><br>
+        <h1 class="banner-text poppins-medium my_name"></h1><br>
         <div class="loader"></div>
     </div>
     <section class="bg-img d-flex flex-column justify-content-center" id="home-section">
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
             <div class="container">
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">SUTHARSANAN</a>
+                <a class="navbar-brand my_name" href="#"></a>
         
                 <!-- Hamburger Button: Visible on md and smaller -->
                 <button class="toggle-btn open-btn d-lg-none" type="button">
@@ -63,7 +63,7 @@
                 <!-- Mobile Sidebar Menu: Only on md and below -->
                 <div class="nav-bar d-md-none">
                     <button class="close-btn"><i class="fas fa-circle-xmark"></i></button>
-                    <h3 class="margin-20px">SUTHARSANAN</h3>
+                    <h3 class="margin-20px my_name"></h3>
                     <p class="light-dark margin-rl pb-3">Menus</p>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -90,9 +90,9 @@
         </nav>
         
         <main class="container text-white text-center my-5">
-            <h1 class="banner-text poppins-medium wow animate__animated animate__fadeInUp">I'M SUTHARSANAN</h1>
+            <h1 class="banner-text poppins-medium wow animate__animated animate__fadeInUp">I'M <span class="my_name"></span></h1>
             <h2 class="poppins-regular mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                <span class="txt-theme-color">WEB</span> DEVELOPER
+                <span class="txt-theme-color my_role_fname"></span> <span class="my_role_lname"></span>
             </h2>
             <a href="mailto:sutharsanan100@gmail.com"
                class="nav-link hover-button py-3 px-5 wow animate__animated animate__fadeInUp"
@@ -113,11 +113,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                 <img src="./images/about_sub.svg" alt="" class="wow animate__animated animate__fadeInUp">
-                <p class="px-4 text-justify wow animate__animated animate__fadeInUp">
-                    Motivated and detail-oriented professional with over 2+ years of experience in web and
-                    mobile applications. Seeking a challenging role to further advance my skills and contribute to
-                    the success of an innovative company. Committed to delivering high-quality code, fostering
-                    collaborative environments, and staying abreast of industry trends.</p>
+                <p class="px-4 text-justify wow animate__animated animate__fadeInUp my_objectives"></p>
             </div>
         </div>
     </section>
@@ -174,9 +170,7 @@
         </div>        
         <div class="row justify-content-between">
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <!-- <img src="./images/contact.svg" alt="" class="responsive-img" width="400"> -->
                 <p class="mb-5 wow animate__animated animate__fadeInUp">For freelance projects or collaboration inquiries, feel free to reach out to me</p>
-      
                 <div class="d-flex justify-content-start align-items-center mb-5 wow animate__animated animate__fadeInUp">
                     <i class="fas fa-phone icon-rounded"></i>
                     <div class="d-flex flex-column">
@@ -218,7 +212,7 @@
                     <span class="label">Email</span>
                 </div>
                 <div class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp">
-                    <input type="text" name="phone" id="phone" class="inputf form-values" placeholder="Phone" />
+                    <input type="number" name="phone" id="phone" class="inputf form-values" placeholder="Phone" />
                     <span class="label">Phone</span>
                 </div>
                 <div class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp">
@@ -234,13 +228,10 @@
         <div class="container">
             <div class="row justify-content-between pt-5 pb-2 border-bottom border-light">
                 <div class="col-12 text-center">
-                    <h1 class="text-white mb-4 wow animate__animated animate__fadeInUp">SUTHARSANAN</h1>
-                    <p class="text-white wow animate__animated animate__fadeInUp">Motivated and detail-oriented professional with over 2+ years of experience in web and
-                        app development. Seeking a challenging role to further advance my skills and contribute to
-                        the success of an innovative company. Committed to delivering high-quality code, fostering
-                        collaborative environments, and staying abreast of industry trends</p>
+                    <h1 class="text-white mb-4 wow animate__animated animate__fadeInUp my_name"></h1>
+                    <p class="text-white wow animate__animated animate__fadeInUp my_objectives"></p>
                         <div class="d-flex justify-content-center align-items-center mb-4 wow animate__animated animate__fadeInUp">
-                            <a class="nav-link" href="tel:+918220224143"><i class="fas fa-phone icon-rounded"></i></a>
+                            <a class="nav-link" target="_blank" href="tel:+918220224143"><i class="fas fa-phone icon-rounded"></i></a>
                             <a class="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=8220224143&text=Hello"><i class="fab fa-whatsapp icon-rounded"></i></a>
                             <a class="nav-link" target="_blank" href="mailto:sutharsanan100@gmail.com"><i class="fas fa-envelope icon-rounded"></i></a>
                             <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/sutharsanan-a-s/"><i class="fab fa-linkedin icon-rounded"></i></a>
@@ -260,22 +251,28 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
 
     <!-- Initialize WOW.js -->
-    <!-- <script>
-        new WOW().init();
-    </script> -->
 
     <script>
         const preloader = document.querySelector('#preloader');
+        var myName = "SUTHARSANAN";
+        var myRoleFname = "Web";
+        var myRoleLname = "Developer";
+        var myObjectives = `Motivated and detail-oriented professional with over 2+ years of experience in web and
+                    mobile applications. Seeking a challenging role to further advance my skills and contribute to
+                    the success of an innovative company. Committed to delivering high-quality code, fostering
+                    collaborative environments, and staying abreast of industry trends.`;
 
+        document.title = myName;
+        $(".my_name").text(myName)
+        $(".my_role_fname").text(myRoleFname)
+        $(".my_role_lname").text(myRoleLname)
+        $(".my_objectives").text(myObjectives)
         window.addEventListener('load', () => {
             if (preloader) {
                 // Start preloader slide-up animation
                 // preloader.classList.add('slide-up');
-
-                // Wait for animation to finish before removing preloader & starting WOW
                 setTimeout(() => {
                     preloader.remove();
-
                     // Now initialize WOW.js
                     new WOW().init();
                 }, 600); // 600ms = should match your CSS transition time
