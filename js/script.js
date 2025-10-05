@@ -136,18 +136,11 @@ const experienceData = [
     responsibilities: "Specialized in designing and developing high-performance hybrid mobile applications using the Ionic framework, Angular, and TypeScript. Proven expertise in building scalable cross-platform solutions for iOS and Android, with seamless integration of RESTful APIs and native functionalities via Cordova/Capacitor and full-cycle deployment to the Apple App Store and Google Play Store."
   },
   {
-    company_name: "ANGLER Technologies",
-    role: "Software Engineer & Project Lead",
-    location: "Coimbatore, Tamil Nadu, india - Onsite",
-    period: "Full-time, Aug 2024 - Jan 2025",
-    responsibilities: "Led end-to-end development of two projects as Project Lead, including seamless integration of Razorpay (Collect Now) payment gateway, leveraging technologies such as HTML, CSS, JavaScript, jQuery, Bootstrap, PHP, MySQLi, and MSSQL, and also served as a Software Engineer, providing ongoing support, maintenance, and feature enhancements for multiple client projects."
-  },
-  {
     company_name: "dsignz media",
     role: "Web & App Developer",
     location: "Coimbatore, Tamil Nadu, india - Onsite",
-    period: "Full-time, Dec 2022 - Jul 2024",
-    responsibilities: "Developed responsive web and mobile applications using HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, and Ionic. Implemented backend functionality with PHP, Laravel, and MySQLi while managing client communications to gather requirements, provide updates, and ensure successful project delivery."
+    period: "Full-time, Dec 2022 - Jan 2025",
+    responsibilities: "Developed responsive web and mobile applications using HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, and Ionic. Implemented backend functionality with PHP, Laravel, and MySQLi. Integrated Razorpay (Collect Now) payment gateway for seamless payment processing. Managed client communications to gather requirements, provide updates, and ensure successful project delivery."
   },
 ];
 
