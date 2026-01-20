@@ -94,7 +94,7 @@
                 <span class="my_role_fname"></span> <span class="my_role_lname"></span>
             </h4>
             <h1 class="banner-text mb-4 poppins-medium wow animate__animated animate__fadeInUp"><span class="my_name"></span></h1>
-            <p class="text-ddd mb-5 wow animate__animated animate__fadeInUp"  data-wow-delay="0.3s">3+ years of experience in web and mobile application development.</p>
+            <p class="text-ddd my_simple_intro mb-5 wow animate__animated animate__fadeInUp"  data-wow-delay="0.3s"></p>
             <a href="mailto:sutharsanan100@gmail.com"
                class="nav-link hover-button py-3 px-5 wow animate__animated animate__fadeInUp"
                style="width: max-content; margin: auto;"
@@ -258,14 +258,16 @@
         var myName = "SUTHARSANAN";
         var myRoleFname = "Software";
         var myRoleLname = "Engineer";
+        var simpleIntro = "3+ years of experience in web and mobile application development.";
         var myObjectives = `Motivated and detail-oriented professional with over 3+ years of experience in web and
                     mobile applications. Seeking a challenging role to further advance my skills and contribute to
                     the success of an innovative company. Committed to delivering high-quality code, fostering
                     collaborative environments, and staying abreast of industry trends.`;
-
+        
         $(".my_name").text(myName)
         $(".my_role_fname").text(myRoleFname)
         $(".my_role_lname").text(myRoleLname)
+        $(".my_simple_intro").text(simpleIntro)
         $(".my_objectives").text(myObjectives)
         window.addEventListener('load', () => {
             if (preloader) {
