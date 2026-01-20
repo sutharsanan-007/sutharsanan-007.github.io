@@ -129,15 +129,15 @@ const educationData = [
 
 const experienceData = [
   {
-    company_name: "AIREI India Pvt Ltd",
+    company_name: "AIREI",
     role: "Software Engineer",
     location: "Coimbatore, Tamil Nadu, india - Onsite",
     period: "Full-time, Feb 2025 - Present",
     responsibilities: "Specialized in designing and developing high-performance hybrid mobile applications using the Ionic framework, Angular, and TypeScript. Proven expertise in building scalable cross-platform solutions for iOS and Android, with seamless integration of RESTful APIs and native functionalities via Cordova/Capacitor and full-cycle deployment to the Apple App Store and Google Play Store."
   },
   {
-    company_name: "dsignz media",
-    role: "Web & App Developer",
+    company_name: "DSIGNZ MEDIA",
+    role: "Web Developer",
     location: "Coimbatore, Tamil Nadu, india - Onsite",
     period: "Full-time, Dec 2022 - Jan 2025",
     responsibilities: "Developed responsive web and mobile applications using HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, and Ionic. Implemented backend functionality with PHP, Laravel, and MySQLi. Integrated Razorpay (Collect Now) payment gateway for seamless payment processing. Managed client communications to gather requirements, provide updates, and ensure successful project delivery."
@@ -154,7 +154,7 @@ function appendExperienceSection() {
     card.innerHTML = `
       <span class="position-absolute rounded-circle-position translate-middle p-2 bg-white border border-3 border-theme-color rounded-circle"></span>
       <h5 class="fw-bold">${item.company_name}</h5>
-      <div class="fw-bold mb-1">${item.role}</div>
+      <div class="fw-bold mb-1 text-uppercase">${item.role}</div>
       <div class="mb-1">${item.period}</div>
       <div class="fst-italic text-muted mb-1">${item.location}</div>
       <p>${item.responsibilities}</p>
@@ -220,12 +220,6 @@ const skillsData = [
 
   const projectsData = [
     {
-      image: 'images/projects/arambam_school.png',
-      title: 'Arambam School',
-      skills: 'Html, Css, Js, JQuery, Php, Mysql',
-      description: 'High quality education to children in need to make a step change difference in their educational attainment and future prospects.'
-    },
-    {
       image: 'images/projects/cumi_careers.png',
       title: 'Cumi Careers',
       skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
@@ -236,12 +230,6 @@ const skillsData = [
       title: 'Decso Plus',
       skills: 'Html, Css, Typescript, Angular, Ionic, Laravel, Mysql',
       description: 'Dental doctor service provides comprehensive patient care through qualified dental professionals, including junior doctor, BDS duty doctor and MDS consultant.'
-    },
-    {
-      image: 'images/projects/eo_coimbatore.png',
-      title: 'Eo Coimbatore',
-      skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql, Atom Aes',
-      description: 'EO - Coimbatore chapter is a relatively young chapter and is about 80 members strong. For a small brief about Coimbatore chapter - The total member company sales of the coimbatore.'
     },
     {
       image: 'images/projects/sri_lalitam.png',
@@ -281,8 +269,8 @@ const skillsData = [
           <img src="${item.image}" class="project-img rounded-0 w-100" alt="${item.title}">
           <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center px-3">
             <h4 class="mb-2">${item.title}</h4>
-            <p class="mb-2 small">${item.description}</p>
-            <p class="small">Technologies: ${item.skills}</p>
+            <p class="mb-2 font-size-12px">${item.description}</p>
+            <p class="font-size-12px">Technologies: ${item.skills}</p>
           </div>
         </div>
       `;
