@@ -223,37 +223,37 @@ const skillsData = [
       image: 'images/projects/cumi_careers.png',
       title: 'Cumi Careers',
       skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
-      description: 'Join our team and build a career that inspires growth and innovation. Explore exciting opportunities and make an impact in a dynamic work environment!'
+      description: 'The careers and recruitment section for Carborundum Universal Limited (CUMI), part of the Murugappa Group, designed to showcase job opportunities.'
     },
     {
       image: 'images/projects/decso_plus.png',
       title: 'Decso Plus',
       skills: 'Html, Css, Typescript, Angular, Ionic, Laravel, Mysql',
-      description: 'Dental doctor service provides comprehensive patient care through qualified dental professionals, including junior doctor, BDS duty doctor and MDS consultant.'
+      description: 'A digital platform designed to empower dental professionals with smart appointment management and service collaboration.'
     },
     {
       image: 'images/projects/sri_lalitam.png',
       title: 'Sri Lalitam',
       skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql, Razor pay',
-      description: 'Shop the latest trends and exclusive deals, all from the comfort of your home. Experience fast, secure checkout and fast delivery on every order!'
+      description: 'Developed the online shop interface for Sri Lalitam, enabling users to browse and filter spiritual and religious categories with a clear cart and checkout process.'
     },
     {
       image: 'images/projects/supportive_souls.png',
       title: 'Supportive Souls',
       skills: 'Html, Css, Js, JQuery, Bootstrap, Php, Mysql',
-      description: 'Supportive Souls is a growing network of like minded individuals dedicated to making a positive impact on the world through our various charitable initiatives.'
+      description: 'Developed Supportive Souls, a charitable website — including education support and hunger relief — with donation and volunteer engagement features.'
     },
     {
       image: 'images/projects/pkps.jpg',
       title: 'PKPS',
       skills: 'Html, Css, Typescript, Angular, Ionic',
-      description: 'Developed a project management system to streamline task assignment, tracking, and collaboration. Implemented role-based access, real-time updates.'
+      description: 'The project management system to streamline task assignment, tracking, and collaboration. Implemented role-based access, real-time updates.'
     },
     {
       image: 'images/projects/my_palm_mill.jpg',
       title: 'MyPalm Mill',
       skills: 'Html, Css, Typescript, Angular, Ionic',
-      description: 'The system integrates modules like Grading & Weighbridge, Production, Maintenance, Laboratory, Supply Chain, and Traceability, providing real-time data insights.'
+      description: 'The system integrates modules like Grading & Weighbridge, Production, Maintenance, Laboratory, Supply Chain and Traceability, providing real-time data insights.'
     }
   ];
 
