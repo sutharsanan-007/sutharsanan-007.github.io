@@ -20,11 +20,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- CSS Styles -->
+    <!-- Animations -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -33,7 +33,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/modern-style.css" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/mine.jpeg" type="image/x-icon" />
@@ -42,448 +44,412 @@
   </head>
 
   <body>
-    <div id="preloader">
-      <h1 class="banner-text poppins-medium my_name"></h1>
-      <!-- <div class="loader"></div> -->
-      <!-- Progress Bar -->
-      <div class="progress-wrapper">
-        <div class="progress-bar" id="progressBar"></div>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader-modern">
+      <div class="preloader-content">
+        <!-- <div class="loader-ring"></div> -->
+        <p class="hero-title poppins-medium my_name mt-4"></p>
+        <div class="progress-wrapper">
+          <div class="progress-bar-modern" id="progressBar"></div>
+        </div>
+        <p class="load-percent"><span id="progress">0</span>%</p>
       </div>
-      <p class="load-percent"><span id="progress">0</span>%</p>
     </div>
-    <section
-      class="bg-img d-flex flex-column justify-content-around"
-      id="home-section"
-    >
-      <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
-        <div class="container align-items-center">
-          <!-- Brand -->
-          <a class="navbar-brand my_name" href="javascript:;"></a>
 
-          <!-- Hamburger Button: Visible on md and smaller -->
-          <button class="toggle-btn open-btn d-lg-none" type="button">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+    <!-- Navigation -->
+    <nav class="navbar-modern" id="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="javascript:;" class="brand-text my_name"></a>
+        </div>
 
-          <!-- Inline Nav: Visible on larger than md -->
-          <ul class="navbar-nav d-none d-lg-flex flex-row ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active-nav" href="#home-section"
-                ><i class="fas fa-house nav-icon"></i>Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about-section"
-                ><i class="fas fa-user nav-icon"></i>About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#whatido-section"
-                ><i class="fa-solid fa-trophy nav-icon"></i>What I Do</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects-section"
-                ><i class="fas fa-laptop nav-icon"></i>Portfolio</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact-section"
-                ><i class="fas fa-comments nav-icon"></i>Contact</a
-              >
-            </li>
-          </ul>
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu-desktop mb-0">
+          <li>
+            <a href="#home-section" class="nav-link-modern active">Home</a>
+          </li>
+          <li><a href="#about-section" class="nav-link-modern">About</a></li>
+          <li>
+            <a href="#whatido-section" class="nav-link-modern">Services</a>
+          </li>
+          <li>
+            <a href="#projects-section" class="nav-link-modern">Portfolio</a>
+          </li>
+          <li>
+            <a href="#contact-section" class="nav-link-modern">Contact</a>
+          </li>
+        </ul>
 
-          <!-- Mobile Sidebar Menu: Only on md and below -->
-          <div class="nav-bar d-lg-none">
-            <button class="close-btn">
-              <i class="fas fa-circle-xmark"></i>
-            </button>
-            <!-- <h3 class="margin-20px my_name"></h3> -->
-            <p class="light-dark margin-rl py-3 fw-bold text-uppercase">
-              M e n u s
-            </p>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active-nav" href="#home-section"
-                  ><i class="fas fa-house nav-icon"></i>Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about-section"
-                  ><i class="fas fa-user nav-icon"></i>About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#whatido-section"
-                  ><i class="fa-solid fa-trophy nav-icon"></i>What I Do</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#projects-section"
-                  ><i class="fas fa-laptop nav-icon"></i>Portfolio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact-section"
-                  ><i class="fas fa-comments nav-icon"></i>Contact</a
-                >
-              </li>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="nav-menu-mobile" id="mobileMenu">
+        <a href="#home-section" class="mobile-nav-link">Home</a>
+        <a href="#about-section" class="mobile-nav-link">About</a>
+        <a href="#whatido-section" class="mobile-nav-link">Services</a>
+        <a href="#projects-section" class="mobile-nav-link">Portfolio</a>
+        <a href="#contact-section" class="mobile-nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home-section">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge wow animate__animated animate__fadeInDown">
+            <span class="badge-text">Welcome to my portfolio</span>
+          </div>
+          <h1
+            class="hero-title wow animate__animated animate__fadeInUp my_name"
+          >
+            SUTHARSANAN
+          </h1>
+          <p class="hero-subtitle wow animate__animated animate__fadeInUp">
+            <span class="my_role_fname">Software</span>
+            <span class="my_role_lname">Engineer</span>
+          </p>
+          <p
+            class="hero-description wow animate__animated animate__fadeInUp my_simple_intro"
+          ></p>
+          <div class="hero-cta wow animate__animated animate__fadeInUp">
+            <a
+              href="mailto:sutharsanan100@gmail.com"
+              class="btn-primary-modern"
+            >
+              <span>Get Started</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#about-section" class="btn-secondary-modern">
+              <span>Learn More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Elements -->
+      <div class="floating-elements">
+        <div class="float-circle float-1"></div>
+        <div class="float-circle float-2"></div>
+        <div class="float-circle float-3"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-modern" id="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Who I Am as a Professional</p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-image wow animate__animated animate__fadeInLeft">
+            <div class="image-frame">
+              <img src="./images/mine.jpeg" alt="Sutharsanan" />
+            </div>
+          </div>
+
+          <div class="about-text wow animate__animated animate__fadeInRight">
+            <h3>Full-Stack Developer & Problem Solver</h3>
+            <p class="my_objectives"></p>
+            <div class="about-stats">
+              <div class="stat">
+                <h4>3.5+</h4>
+                <p>Years Experience</p>
+              </div>
+              <div class="stat">
+                <h4>6+</h4>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stat">
+                <h4>100%</h4>
+                <p>Client Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-modern section-light" id="education-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle">My Academic Background</p>
+        </div>
+
+        <div class="timeline-container">
+          <div id="education-timeline" class="timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section-modern" id="experience-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Professional Growth & Achievements</p>
+        </div>
+
+        <div class="timeline-container">
+          <div id="experience-timeline" class="timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-modern section-light" id="whatido-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What I Do</h2>
+          <p class="section-subtitle">Services & Expertise</p>
+        </div>
+
+        <div class="services-grid" id="services-grid"></div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-modern" id="skills-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">Proficient in Modern Development Tools</p>
+        </div>
+
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section-modern section-light" id="projects-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">Showcase of My Work & Projects</p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-modern" id="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's build something amazing together</p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-card wow animate__animated animate__fadeInUp">
+              <i class="fas fa-phone"></i>
+              <h4>Phone</h4>
+              <a href="tel:+918220224143">+91 8220224143</a>
+            </div>
+
+            <div class="contact-card wow animate__animated animate__fadeInUp">
+              <i class="fab fa-whatsapp"></i>
+              <h4>WhatsApp</h4>
+              <a
+                href="https://api.whatsapp.com/send?phone=8220224143&text=Hello"
+                target="_blank"
+              >
+                +91 8220224143
+              </a>
+            </div>
+
+            <div class="contact-card wow animate__animated animate__fadeInUp">
+              <i class="fas fa-envelope"></i>
+              <h4>Email</h4>
+              <a href="mailto:sutharsanan100@gmail.com"
+                >sutharsanan100@gmail.com</a
+              >
+            </div>
+
+            <div class="contact-card wow animate__animated animate__fadeInUp">
+              <i class="fab fa-linkedin"></i>
+              <h4>LinkedIn</h4>
+              <a
+                href="https://www.linkedin.com/in/sutharsanan-a-s/"
+                target="_blank"
+              >
+                sutharsanan-a-s
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="contact-form-wrapper wow animate__animated animate__fadeInUp"
+          >
+            <form class="contact-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  class="form-input"
+                  required
+                />
+                <label for="name">Full Name</label>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="your@email.com"
+                  class="form-input"
+                  required
+                />
+                <label for="email">Email Address</label>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="+91 XXXXX XXXXX"
+                  class="form-input"
+                  required
+                />
+                <label for="phone">Phone Number</label>
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  placeholder="Tell me about your project..."
+                  class="form-input form-textarea"
+                  rows="5"
+                  required
+                ></textarea>
+                <label for="message">Message</label>
+              </div>
+
+              <button
+                type="button"
+                class="btn-primary-modern w-100 justify-content-center"
+                onclick="redirectToWhatsApp()"
+              >
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links wow animate__animated animate__fadeInUp">
+          <a href="tel:+918220224143" title="Call">
+            <i class="fas fa-phone"></i>
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=8220224143&text=Hello"
+            target="_blank"
+            title="WhatsApp"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="mailto:sutharsanan100@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sutharsanan-a-s/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/sutharsanan-007/"
+            target="_blank"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="my_name"></h3>
+            <p class="my_objectives"></p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home-section">Home</a></li>
+              <li><a href="#about-section">About</a></li>
+              <li><a href="#projects-section">Portfolio</a></li>
+              <li><a href="#contact-section">Contact</a></li>
             </ul>
           </div>
 
-          <!-- Backdrop for mobile menu -->
-          <div class="backdrop d-lg-none"></div>
-        </div>
-      </nav>
-      <div class="mb-5"></div>
-      <main class="container text-white text-center">
-        <h4
-          class="poppins-regular text-ddd text-uppercase mb-4 wow animate__animated animate__fadeInUp"
-          data-wow-delay="0.1s"
-        >
-          <span class="my_role_fname"></span>
-          <span class="my_role_lname"></span>
-        </h4>
-        <h1
-          class="banner-text mb-4 poppins-medium wow animate__animated animate__fadeInUp"
-          data-wow-delay="0.2s"
-        >
-          <span class="my_name"></span>
-        </h1>
-        <p
-          class="text-ddd my_simple_intro mb-5 wow animate__animated animate__fadeInUp"
-          data-wow-delay="0.3s"
-        ></p>
-        <a
-          href="mailto:sutharsanan100@gmail.com"
-          class="nav-link hover-button rounded-pill py-3 px-5 wow animate__animated animate__fadeInUp"
-          style="width: max-content; margin: auto"
-          data-wow-delay="0.4s"
-        >
-          <span>Hire Me</span>
-        </a>
-      </main>
-      <!-- Scroll Indicator -->
-      <div
-        class="mb-2 wow animate__animated animate__fadeInUp"
-        data-wow-delay="0.5s"
-      >
-        <p class="scroll-text text-center text-white">Scroll Down</p>
-        <div class="mouse">
-          <div class="wheel"></div>
-        </div>
-      </div>
-    </section>
-    <section class="container" id="about-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          About
-        </p>
-        <h2 class="text-uppercase">Who I Am as a Professional</h2>
-      </div>
-      <div class="row justify-content-between mb-5">
-        <div
-          class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex justify-content-center align-items-center p-0 wow animate__animated animate__fadeInUp"
-        >
-          <img
-            src="./images/mine.jpeg"
-            alt=""
-            class="responsive-img"
-            style="margin: 0 10px"
-          />
-        </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-          <img
-            src="./images/about_sub.svg"
-            alt=""
-            class="wow animate__animated animate__fadeInUp"
-          />
-          <p
-            class="text-justify wow animate__animated animate__fadeInUp my_objectives"
-          ></p>
-        </div>
-      </div>
-    </section>
-    <section class="container" id="education-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          Education
-        </p>
-        <h2 class="text-uppercase">My Academic Background</h2>
-      </div>
-      <div
-        class="d-flex flex-wrap flex-column position-relative border-start border-theme-color ps-4 mx-4"
-      ></div>
-    </section>
-    <section class="container" id="experience-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          Experience
-        </p>
-        <h2 class="text-uppercase">Professional Experience & Growth</h2>
-      </div>
-      <div
-        class="d-flex flex-wrap flex-column position-relative border-start border-theme-color ps-4 mx-4"
-      ></div>
-    </section>
-    <section class="container" id="whatido-section">
-      <h1 class="text-center m-86px"><span class="theme-border"></span></h1>
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          What I Do
-        </p>
-        <h2 class="text-uppercase">Developing Web & Mobile Applications</h2>
-      </div>
-      <div class="row justify-content-evenly gy-4 align-items-stretch"></div>
-    </section>
-    <section class="container" id="skills-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          Skills
-        </p>
-        <h2 class="text-uppercase">
-          Proficient in Tools for Modern Software Development
-        </h2>
-      </div>
-      <div class="row justify-content-evenly gy-4"></div>
-    </section>
-    <section class="container" id="projects-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          Portfolio
-        </p>
-        <h2 class="text-uppercase">Showcase of My Work and Projects</h2>
-      </div>
-      <div class="row justify-content-center gy-4"></div>
-    </section>
-    <section class="container" id="contact-section">
-      <div class="m-86px wow animate__animated animate__fadeInUp">
-        <p
-          class="section-title text-uppercase text-secondary letter-spacing-sm m-0"
-        >
-          Contact
-        </p>
-        <h2 class="text-uppercase">Get in Touch for Collaborations</h2>
-      </div>
-      <div class="row justify-content-between">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-          <p class="mb-5 wow animate__animated animate__fadeInUp">
-            For freelance projects or collaboration inquiries, feel free to
-            reach out to me
-          </p>
-          <div
-            class="d-flex justify-content-start align-items-center mb-5 wow animate__animated animate__fadeInUp"
-          >
-            <i class="fas fa-phone icon-rounded call-icon-bg"></i>
-            <div class="d-flex flex-column">
-              <h5 class="m-0">Call</h5>
-              <p class="m-0">
-                <a class="nav-link" href="tel:+918220224143">+91 8220224143</a>
-              </p>
-            </div>
-          </div>
-          <div
-            class="d-flex justify-content-start align-items-center mb-5 wow animate__animated animate__fadeInUp"
-          >
-            <i class="fab fa-whatsapp icon-rounded whatsapp-icon-bg"></i>
-            <div class="d-flex flex-column">
-              <h5 class="m-0">WhatsApp</h5>
-              <p class="m-0">
-                <a
-                  class="nav-link"
-                  target="_blank"
-                  href="https://api.whatsapp.com/send?phone=8220224143&text=Hello"
-                  >+91 8220224143</a
-                >
-              </p>
-            </div>
-          </div>
-          <div
-            class="d-flex justify-content-start align-items-center mb-5 wow animate__animated animate__fadeInUp"
-          >
-            <i class="fas fa-envelope icon-rounded email-icon-bg"></i>
-            <div class="d-flex flex-column">
-              <h5 class="m-0">Email</h5>
-              <p class="m-0">
-                <a
-                  class="nav-link"
-                  target="_blank"
-                  href="mailto:sutharsanan100@gmail.com"
-                  >sutharsanan100@gmail.com</a
-                >
-              </p>
-            </div>
-          </div>
-          <div
-            class="d-flex justify-content-start align-items-center mb-5 wow animate__animated animate__fadeInUp"
-          >
-            <i class="fab fa-linkedin icon-rounded linkedin-icon-bg"></i>
-            <div class="d-flex flex-column">
-              <h5 class="m-0">LinkedIn</h5>
-              <p class="m-0">
-                <a
-                  class="nav-link"
-                  target="_blank"
-                  href="https://www.linkedin.com/in/sutharsanan-a-s/"
-                  >sutharsanan-a-s</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 col-sm-12 col-md-12 col-lg-5 shadow-sm rounded p-4 mb-5"
-        >
-          <h3 class="text-center wow animate__animated animate__fadeInUp">
-            Let’s Build Something Great
-          </h3>
-          <p class="text-center mb-4 wow animate__animated animate__fadeInUp">
-            Contact me to discuss how we can work together on your next project.
-          </p>
-          <div
-            class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp"
-          >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="inputf form-values"
-              placeholder="Name"
-            />
-            <span class="label">Name</span>
-          </div>
-          <div
-            class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp"
-          >
-            <input
-              type="text"
-              name="email"
-              id="email"
-              class="inputf form-values"
-              placeholder="Email"
-            />
-            <span class="label">Email</span>
-          </div>
-          <div
-            class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp"
-          >
-            <input
-              type="number"
-              name="phone"
-              id="phone"
-              class="inputf form-values"
-              placeholder="Phone"
-            />
-            <span class="label">Phone</span>
-          </div>
-          <div
-            class="position-relative margin-b-form-field wow animate__animated animate__fadeInUp"
-          >
-            <textarea
-              name="message"
-              id="message"
-              class="inputf form-values"
-              placeholder="Write here..."
-            ></textarea>
-            <span class="label">Message</span>
-          </div>
-          <p
-            class="theme-bg-color-btn text-center py-2 wow animate__animated animate__fadeInUp"
-            role="button"
-            onclick="redirectToWhatsApp()"
-          >
-            Send
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="footer-bg">
-      <div class="container">
-        <div
-          class="row justify-content-between pt-5 pb-2 border-bottom border-light"
-        >
-          <div class="col-12 text-center">
-            <h1
-              class="text-white mb-4 wow animate__animated animate__fadeInUp my_name"
-            ></h1>
-            <p
-              class="text-white wow animate__animated animate__fadeInUp my_objectives"
-            ></p>
-            <div
-              class="d-flex justify-content-center align-items-center mb-4 wow animate__animated animate__fadeInUp"
-            >
-              <a class="nav-link" href="tel:+918220224143"
-                ><i class="fas fa-phone icon-rounded call-icon-bg"></i
-              ></a>
+          <div class="footer-section">
+            <h4>Follow Me</h4>
+            <div class="footer-social">
               <a
-                class="nav-link"
-                target="_blank"
-                href="https://api.whatsapp.com/send?phone=8220224143&text=Hello"
-                ><i class="fab fa-whatsapp icon-rounded whatsapp-icon-bg"></i
-              ></a>
-              <a
-                class="nav-link"
-                target="_blank"
-                href="mailto:sutharsanan100@gmail.com"
-                ><i class="fas fa-envelope icon-rounded email-icon-bg"></i
-              ></a>
-              <a
-                class="nav-link"
-                target="_blank"
                 href="https://www.linkedin.com/in/sutharsanan-a-s/"
-                ><i class="fab fa-linkedin icon-rounded linkedin-icon-bg"></i
-              ></a>
-              <a
-                class="nav-link"
                 target="_blank"
-                href="https://github.com/sutharsanan-007/"
-                ><i class="fab fa-github icon-rounded github-icon-bg m-0"></i
-              ></a>
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/sutharsanan-007/" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mailto:sutharsanan100@gmail.com">
+                <i class="fas fa-envelope"></i>
+              </a>
             </div>
           </div>
         </div>
-        <p class="text-center text-white mb-0 py-4 font-size-14px">
-          Copyrights <i class="fa-regular fa-copyright"></i> All Rights Reserved
-          2024 - <span id="currentYear"></span>
-        </p>
-      </div>
-    </section>
 
-    <!-- JS Libraries -->
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="currentYear"></span> Sutharsanan. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
-
-    <!-- Initialize WOW.js -->
 
     <script>
+      // Preloader
       const preloader = document.querySelector("#preloader");
       const progressEl = document.getElementById("progress");
       const progressBar = document.getElementById("progressBar");
       let fakeProgress = 0;
-      let isLoaded = false;
       let progress = 0;
+
+      // Personal Data
       var myName = "SUTHARSANAN";
       var myRoleFname = "Software";
       var myRoleLname = "Engineer";
       var simpleIntro =
-        "3+ years of experience in web and mobile application development.";
-      var myObjectives = `Full-stack developer with 3+ years of experience delivering scalable web and mobile applications. Completed 6+ production projects across diverse industries. Strong in end-to-end development, including payment gateway integration, from requirement analysis to deployment and client handover.`;
+        "3.5+ years of experience in web and mobile application development. Specialized in creating scalable solutions with modern technologies.";
+      var myObjectives = `Full-stack developer with 3.5+ years of experience delivering scalable web and mobile applications. Completed 6+ production projects across diverse industries. Strong in end-to-end development, including payment gateway integration, from requirement analysis to deployment and client handover.`;
 
       $(".my_name").text(myName);
       $(".my_role_fname").text(myRoleFname);
@@ -491,7 +457,7 @@
       $(".my_simple_intro").text(simpleIntro);
       $(".my_objectives").text(myObjectives);
 
-      // Smooth fake progress (0 → 90%)
+      // Smooth Preloader Progress
       const interval = setInterval(() => {
         if (progress < 90) {
           progress++;
@@ -503,9 +469,7 @@
       window.addEventListener("load", () => {
         clearInterval(interval);
 
-        // Finish 90 → 100
         let final = progress;
-
         const finish = setInterval(() => {
           final++;
           progressEl.textContent = final;
@@ -521,9 +485,13 @@
           }
         }, 15);
       });
+
+      // Current Year
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
     </script>
 
-    <!-- Your Custom JS -->
-    <script src="js/script.js"></script>
+    <!-- Custom JS -->
+    <script src="js/modern-script.js"></script>
   </body>
 </html>
