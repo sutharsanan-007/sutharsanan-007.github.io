@@ -2,17 +2,258 @@
    MODERN PORTFOLIO - JAVASCRIPT
    =========================== */
 
+const myName = "SUTHARSANAN";
+const myRoleFname = "Software";
+const myRoleLname = "Engineer";
+const simpleIntro =
+  "3.5+ years of experience in web and mobile application development. Specialized in creating scalable solutions with modern technologies.";
+const myObjectives = `Full-stack developer with 3.5+ years of professional experience in designing, developing, and maintaining web and mobile applications. Experienced in Angular, Ionic, TypeScript, PHP, Laravel, MySQL, REST APIs, and payment gateway integrations. Strong understanding of end-to-end application development, from requirement analysis and development to testing, deployment, production support, and client handover. Experienced in building responsive applications, reusable components, API integrations, and cross-platform mobile applications.`;
+
+let manualThemeOverride = null;
+
+const languageOptions = [
+  { label: "Afrikaans", code: "af" },
+  { label: "العربية", code: "ar" },
+  { label: "Čeština", code: "cs" },
+  { label: "Dansk", code: "da" },
+  { label: "Deutsch", code: "de" },
+  { label: "Ελληνικά", code: "el" },
+  { label: "English", code: "en" },
+  { label: "Español (España)", code: "es" },
+  { label: "Español", code: "es" },
+  { label: "فارسی", code: "fa" },
+  { label: "Suomi", code: "fi" },
+  { label: "Français", code: "fr" },
+  { label: "עברית", code: "iw" },
+  { label: "Bahasa Indonesia", code: "id" },
+  { label: "Italiano", code: "it" },
+  { label: "日本語", code: "ja" },
+  { label: "한국어", code: "ko" },
+  { label: "Bahasa Melayu", code: "ms" },
+  { label: "Norsk", code: "no" },
+  { label: "Nederlands", code: "nl" },
+  { label: "Polski", code: "pl" },
+  { label: "Português (Brasil)", code: "pt" },
+  { label: "Português (Portugal)", code: "pt" },
+  { label: "Русский", code: "ru" },
+  { label: "Svenska", code: "sv" },
+  { label: "ภาษาไทย", code: "th" },
+  { label: "Filipino", code: "tl" },
+  { label: "Türkçe", code: "tr" },
+  { label: "中文(简体)", code: "zh-CN" },
+  { label: "中文(台灣)", code: "zh-TW" },
+  { label: "বাংলা", code: "bn" },
+  { label: "ગુજરાતી", code: "gu" },
+  { label: "हिन्दी", code: "hi" },
+  { label: "Hrvatski", code: "hr" },
+  { label: "Magyar", code: "hu" },
+  { label: "ಕನ್ನಡ", code: "kn" },
+  { label: "മലയാളം", code: "ml" },
+  { label: "मराठी", code: "mr" },
+  { label: "नेपाली", code: "ne" },
+  { label: "ਪੰਜਾਬੀ", code: "pa" },
+  { label: "සිංහල", code: "si" },
+  { label: "Slovenčina", code: "sk" },
+  { label: "தமிழ்", code: "ta" },
+  { label: "తెలుగు", code: "te" },
+  { label: "اردو", code: "ur" },
+  { label: "Tiếng Việt", code: "vi" },
+  { label: "中文(香港)", code: "zh-TW" },
+  { label: "Български", code: "bg" },
+  { label: "Français (Canada)", code: "fr" },
+  { label: "Română", code: "ro" },
+  { label: "Српски", code: "sr" },
+  { label: "Українська", code: "uk" },
+];
+
+const supportedLanguageCodes = [
+  ...new Set(languageOptions.map((language) => language.code)),
+];
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      includedLanguages: supportedLanguageCodes.join(","),
+      autoDisplay: false,
+    },
+    "google_translate_element",
+  );
+}
+
+function translateWebsite(languageCode) {
+  if (languageCode === "en") {
+    localStorage.removeItem("portfolio-language");
+    document.cookie =
+      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.reload();
+    return;
+  }
+
+  const googleSelect = document.querySelector(".goog-te-combo");
+
+  if (!googleSelect) {
+    window.setTimeout(() => translateWebsite(languageCode), 300);
+    return;
+  }
+
+  googleSelect.value = languageCode;
+  googleSelect.dispatchEvent(new Event("change"));
+  localStorage.setItem("portfolio-language", languageCode);
+}
+
+function getLocalThemeMode() {
+  const currentHour = new Date().getHours();
+  return currentHour >= 18 || currentHour < 6 ? "night" : "day";
+}
+
+function applyTheme(mode) {
+  const body = document.body;
+
+  body.classList.toggle("night-theme", mode === "night");
+  body.classList.toggle("day-theme", mode === "day");
+  body.setAttribute("data-theme", mode);
+
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    const isNight = mode === "night";
+    themeToggle.classList.toggle("night-mode", isNight);
+    themeToggle.setAttribute(
+      "aria-label",
+      isNight ? "Switch to light mode" : "Switch to dark mode",
+    );
+  }
+}
+
+function applyTimeBasedTheme() {
+  if (manualThemeOverride) {
+    applyTheme(manualThemeOverride);
+    return;
+  }
+
+  applyTheme(getLocalThemeMode());
+}
+
+function applyPersonalData() {
+  document.querySelectorAll(".my_name").forEach((element) => {
+    element.textContent = myName;
+  });
+
+  document.querySelectorAll(".my_role_fname").forEach((element) => {
+    element.textContent = myRoleFname;
+  });
+
+  document.querySelectorAll(".my_role_lname").forEach((element) => {
+    element.textContent = myRoleLname;
+  });
+
+  document.querySelectorAll(".my_simple_intro").forEach((element) => {
+    element.textContent = simpleIntro;
+  });
+
+  document.querySelectorAll(".my_objectives").forEach((element) => {
+    element.textContent = myObjectives;
+  });
+}
+
+function startPreloader() {
+  const preloader = document.querySelector("#preloader");
+  const progressEl = document.getElementById("progress");
+  const progressBar = document.getElementById("progressBar");
+
+  if (!preloader || !progressEl || !progressBar) {
+    return;
+  }
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    if (progress < 90) {
+      progress += 1;
+      progressEl.textContent = progress;
+      progressBar.style.width = progress + "%";
+    }
+  }, 25);
+
+  window.addEventListener("load", () => {
+    clearInterval(interval);
+    let final = progress;
+    const finish = setInterval(() => {
+      final += 1;
+      progressEl.textContent = final;
+      progressBar.style.width = final + "%";
+
+      if (final >= 100) {
+        clearInterval(finish);
+        setTimeout(() => {
+          preloader.remove();
+          document.title = myName;
+          new WOW().init();
+        }, 100);
+      }
+    }, 15);
+  });
+}
+
 // ========================
 // Navigation & Scroll Effects
 // ========================
 
 document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("themeToggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const currentMode =
+        document.body.getAttribute("data-theme") || getLocalThemeMode();
+      manualThemeOverride = currentMode === "night" ? "day" : "night";
+      applyTheme(manualThemeOverride);
+    });
+  }
+
+  applyTimeBasedTheme();
+  applyPersonalData();
+  startPreloader();
   setupNavigation();
   setupScrollEffects();
+  setupLanguageSelector();
   populateContent();
   setupFormValidation();
   setupIntersectionObserver();
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+  setInterval(() => {
+    if (!manualThemeOverride) {
+      applyTimeBasedTheme();
+    }
+  }, 60000);
 });
+
+function setupLanguageSelector() {
+  const languageSelect = document.getElementById("languageSelect");
+
+  if (!languageSelect) {
+    return;
+  }
+
+  languageOptions.forEach((language) => {
+    const option = document.createElement("option");
+    option.value = language.code;
+    option.textContent = language.label;
+    languageSelect.appendChild(option);
+  });
+
+  const savedLanguage = localStorage.getItem("portfolio-language") || "en";
+  languageSelect.value = "";
+  languageSelect.addEventListener("change", (event) => {
+    const selectedLanguage = event.target.value;
+    translateWebsite(selectedLanguage);
+    event.target.value = "";
+  });
+
+  if (savedLanguage !== "en") {
+    window.setTimeout(() => translateWebsite(savedLanguage), 800);
+  }
+}
 
 function setupNavigation() {
   const navbar = document.getElementById("navbar");
@@ -43,7 +284,20 @@ function setupNavigation() {
     ".mobile-nav-link, .nav-link-modern",
   );
   allNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      if (targetId && targetId.startsWith("#")) {
+        event.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+        setActiveNavLink(link);
+      }
+
       mobileMenuToggle.classList.remove("active");
       mobileMenu.classList.remove("show");
       document.body.classList.remove("no-scroll");
@@ -57,20 +311,44 @@ function setupNavigation() {
 }
 
 function updateActiveNavLink() {
-  const sections = document.querySelectorAll("[id]");
-  let current = "";
+  const sections = document.querySelectorAll("section[id]");
+  let currentId = "";
+  const scrollPosition = window.scrollY + 140;
 
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 100;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
+    if (section.offsetTop <= scrollPosition) {
+      currentId = section.getAttribute("id");
     }
   });
 
-  document.querySelectorAll(".nav-link-modern").forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
+  const allNavLinks = document.querySelectorAll(
+    ".nav-link-modern, .mobile-nav-link",
+  );
+
+  allNavLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    const isActive = href === `#${currentId}`;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function setActiveNavLink(link) {
+  const allNavLinks = document.querySelectorAll(
+    ".nav-link-modern, .mobile-nav-link",
+  );
+
+  allNavLinks.forEach((item) => {
+    const isActive = item === link;
+    item.classList.toggle("active", isActive);
+    if (isActive) {
+      item.setAttribute("aria-current", "page");
+    } else {
+      item.removeAttribute("aria-current");
     }
   });
 }
@@ -167,7 +445,7 @@ const experienceData = [
     location: "Coimbatore, Tamil Nadu, India - Onsite",
     period: "Full-time, Dec 2022 - Jan 2025",
     responsibilities:
-      "Developed responsive web and mobile applications using HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, and Ionic. Implemented backend functionality with PHP, Laravel, and MySQLi. Integrated Razorpay (Collect Now) payment gateway for seamless payment processing. Managed client communications to gather requirements, provide updates, and ensure successful project delivery.",
+      "I worked on developing and maintaining web and mobile applications using Angular, Ionic, PHP, Laravel, JavaScript, and MySQL. I was involved in the complete project lifecycle, including requirement analysis, application development, REST API integration, testing, deployment, and production support. I also worked on payment gateway integrations such as Razorpay and Atom AES, responsive web development, client requirements, debugging, and performance optimization.",
   },
   {
     company_name: "AIREI",
@@ -175,7 +453,7 @@ const experienceData = [
     location: "Coimbatore, Tamil Nadu, India - Onsite",
     period: "Full-time, Feb 2025 - Present",
     responsibilities:
-      "Specialized in designing and developing high-performance hybrid mobile applications using the Ionic framework, Angular, and TypeScript. Proven expertise in building scalable cross-platform solutions for iOS and Android, with seamless integration of RESTful APIs and native functionalities via Cordova/Capacitor and full-cycle deployment to the Apple App Store and Google Play Store.",
+      "I have been involved in developing and maintaining cross-platform web and mobile applications using Angular, Ionic, and TypeScript. My work includes implementing reusable components, integrating REST APIs, working with Capacitor and Cordova plugins for native mobile functionality, and improving application performance and user experience. I also contribute to debugging, testing, production support, deployment activities, and collaborate with project managers, QA teams, and UI/UX designers throughout the development lifecycle.",
   },
 ];
 
@@ -203,24 +481,69 @@ function populateExperience() {
 // Services Data
 const servicesData = [
   {
-    name: "Web Development",
-    image: "images/web_dev.svg",
-    desc: "Web development is the process of building and maintaining websites or web applications, focusing on coding, functionality, and user interaction.",
+    name: "Web Application Development",
+    image: "images/services/web_application.svg",
+    desc: "Web application development involves building functional and scalable web-based applications using modern technologies to support business operations and user workflows.",
   },
   {
-    name: "App Development",
-    image: "images/app_dev.svg",
-    desc: "App development is the process of creating software applications for mobile or desktop platforms, focusing on functionality, user experience, and performance.",
+    name: "Mobile App Development",
+    image: "images/services/mobile_app.svg",
+    desc: "Mobile app development involves building functional and responsive applications for mobile devices with a focus on performance, usability, and reliability.",
   },
   {
-    name: "Web Design",
-    image: "images/ui_dev.svg",
-    desc: "Web design is the art of planning and creating the layout, visual appearance, and usability of a website to ensure it's attractive and user-friendly.",
+    name: "Frontend Development",
+    image: "images/services/frontend.svg",
+    desc: "Frontend development focuses on building interactive and responsive user interfaces using modern web technologies for a seamless application experience.",
   },
   {
-    name: "Payment Gateway",
-    image: "images/game.svg",
-    desc: "A payment gateway is an online service that authorizes and processes payments for e-commerce transactions, ensuring secure and smooth transactions between buyers and sellers.",
+    name: "Backend Development",
+    image: "images/services/backend.svg",
+    desc: "Backend development involves building server-side logic, business processes, authentication, and data handling to power reliable applications.",
+  },
+  {
+    name: "REST API Development & Integration",
+    image: "images/services/rest_api.svg",
+    desc: "REST API development and integration enables seamless communication between applications, services, and databases for efficient data exchange.",
+  },
+  {
+    name: "Third-Party API Integration",
+    image: "images/services/third_party_api.svg",
+    desc: "Third-party API integration connects applications with external services and platforms to extend functionality and provide additional features.",
+  },
+  {
+    name: "Payment Gateway Integration",
+    image: "images/services/payment_gateway.svg",
+    desc: "Payment gateway integration enables secure online payment processing by connecting applications with reliable payment service providers.",
+  },
+  {
+    name: "Database Design & Development",
+    image: "images/services/database.svg",
+    desc: "Database design and development focuses on structuring, storing, and managing application data efficiently for reliable access and performance.",
+  },
+  {
+    name: "Admin Panel Development",
+    image: "images/services/admin_panel.svg",
+    desc: "Admin panel development involves building secure dashboards for managing users, data, content, settings, and business operations.",
+  },
+  {
+    name: "ERP Application Development",
+    image: "images/services/erp.svg",
+    desc: "ERP application development involves building integrated business solutions for managing operations such as production, supply chain, inventory, and reporting.",
+  },
+  {
+    name: "Performance Optimization & Bug Fixing",
+    image: "images/services/performance.svg",
+    desc: "Performance optimization and bug fixing improve application speed, stability, reliability, and overall functionality by resolving technical issues.",
+  },
+  {
+    name: "Website Maintenance & Support",
+    image: "images/services/maintenance.svg",
+    desc: "Website maintenance and support keeps applications updated, secure, reliable, and functional through ongoing improvements and technical fixes.",
+  },
+  {
+    name: "Deployment & Production Support",
+    image: "images/services/deployment.svg",
+    desc: "Deployment and production support involves releasing applications to live environments, configuring services, and resolving production issues.",
   },
 ];
 
@@ -343,6 +666,9 @@ function populateProjects() {
     const html = `
       <div class="project-card wow animate__animated animate__fadeInUp">
         <img src="${item.image}" alt="${item.title}" class="project-image">
+        <div class="project-label">
+          <h3 class="project-title">${item.title}</h3>
+        </div>
         <div class="project-overlay">
           <h3 class="project-title">${item.title}</h3>
           <p class="project-description">${item.description}</p>
