@@ -33,7 +33,12 @@
   --project-overlay-bg: rgba(255, 255, 255, 0.28);
   --project-overlay-border: rgba(255, 255, 255, 0.55);
   --project-overlay-text: #0f172a;
-  --bg-image: url("../images/bg-image.jpg");
+  --section-gradient: linear-gradient(
+    135deg,
+    #eef2ff 0%,
+    #ecfeff 48%,
+    #fef3c7 100%
+  );
 }
 
 body.night-theme {
@@ -49,6 +54,12 @@ body.night-theme {
   --project-overlay-bg: rgba(15, 23, 42, 0.42);
   --project-overlay-border: rgba(255, 255, 255, 0.2);
   --project-overlay-text: #f8fafc;
+  --section-gradient: linear-gradient(
+    135deg,
+    #111827 0%,
+    #172554 48%,
+    #134e4a 100%
+  );
 }
 
 /* Base Styles */
@@ -93,12 +104,8 @@ body.night-theme::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image:
-    linear-gradient(rgba(2, 8, 23, 0.35), rgba(2, 8, 23, 0.7)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.9;
+  background: linear-gradient(135deg, #020617, #0f172a 50%, #042f2e);
+  opacity: 1;
 }
 
 body.day-theme::before {
@@ -750,6 +757,26 @@ body.night-theme .nav-menu-mobile {
 
 .section-light {
   background: var(--light-bg);
+}
+
+@keyframes sectionGradientFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#whatido-section,
+#skills-section,
+#projects-section,
+#contact-section,
+.footer-modern {
+  background: var(--section-gradient);
+  background-size: 220% 220%;
+  animation: sectionGradientFlow 18s ease-in-out infinite;
 }
 
 .container {
@@ -1654,9 +1681,13 @@ body {
     box-shadow: var(--shadow-sm);
   }
 
-  #whatido-section .service-card.wow {
-    visibility: visible;
-    animation: none !important;
+  #whatido-section .service-card.wow,
+  #skills-section .skill-card.wow,
+  #projects-section .project-card.wow,
+  #contact-section .contact-card.wow,
+  #contact-section .contact-form-wrapper.wow {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
   }
 
   #skills-section .skill-card,
@@ -1665,13 +1696,6 @@ body {
   #contact-section .contact-form-wrapper {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-  }
-
-  #skills-section .skill-card,
-  #projects-section .project-card.wow,
-  #contact-section .wow {
-    animation: none !important;
-    visibility: visible;
   }
 
   #skills-section .skill-progress {
