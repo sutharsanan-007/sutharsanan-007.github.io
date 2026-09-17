@@ -217,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLanguageSelector();
   populateContent();
   setupFormValidation();
-  setupIntersectionObserver();
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
   setInterval(() => {
@@ -575,24 +574,24 @@ const skillsData = [
 
 function populateSkills() {
   const container = document.getElementById("skills-grid");
-  container.innerHTML = "";
 
-  skillsData.forEach((item) => {
-    const html = `
-      <div class="skill-card" style="--proficiency: ${item.proficiency}%">
-        <div class="skill-icon">
-          <img src="${item.image}" alt="${item.name}">
-        </div>
-        <div class="skill-info">
-          <div class="skill-name">${item.name}</div>
-          <div class="skill-bar">
-            <div class="skill-progress"></div>
+  container.innerHTML = skillsData
+    .map(
+      (item) => `
+        <div class="skill-card show" style="--proficiency: ${item.proficiency}%">
+          <div class="skill-icon">
+            <img src="${item.image}" alt="${item.name}" loading="eager" decoding="async">
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">${item.name}</div>
+            <div class="skill-bar">
+              <div class="skill-progress"></div>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-    container.innerHTML += html;
-  });
+      `,
+    )
+    .join("");
 }
 
 // Projects Data
@@ -643,24 +642,24 @@ const projectsData = [
 
 function populateProjects() {
   const container = document.getElementById("projects-grid");
-  container.innerHTML = "";
 
-  projectsData.forEach((item) => {
-    const html = `
-      <div class="project-card wow animate__animated animate__fadeInUp">
-        <img src="${item.image}" alt="${item.title}" class="project-image">
-        <div class="project-label">
-          <h3 class="project-title">${item.title}</h3>
+  container.innerHTML = projectsData
+    .map(
+      (item) => `
+        <div class="project-card wow animate__animated animate__fadeInUp">
+          <img src="${item.image}" alt="${item.title}" class="project-image" loading="eager" decoding="async">
+          <div class="project-label">
+            <h3 class="project-title">${item.title}</h3>
+          </div>
+          <div class="project-overlay">
+            <h3 class="project-title">${item.title}</h3>
+            <p class="project-description">${item.description}</p>
+            <p class="project-tech"><strong>Tech:</strong> ${item.skills}</p>
+          </div>
         </div>
-        <div class="project-overlay">
-          <h3 class="project-title">${item.title}</h3>
-          <p class="project-description">${item.description}</p>
-          <p class="project-tech"><strong>Tech:</strong> ${item.skills}</p>
-        </div>
-      </div>
-    `;
-    container.innerHTML += html;
-  });
+      `,
+    )
+    .join("");
 }
 
 // ========================
@@ -751,32 +750,6 @@ function redirectToWhatsApp() {
   document.getElementById("email").value = "";
   document.getElementById("phone").value = "";
   document.getElementById("message").value = "";
-}
-
-// ========================
-// Intersection Observer for Animations
-// ========================
-
-function setupIntersectionObserver() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Animate skills when they come into view
-        if (entry.target.classList.contains("skill-card")) {
-          entry.target.classList.add("show");
-        }
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll(".skill-card").forEach((card) => {
-    observer.observe(card);
-  });
 }
 
 // ========================

@@ -1659,6 +1659,27 @@ body {
     animation: none !important;
   }
 
+  #skills-section .skill-card,
+  #projects-section .project-card,
+  #contact-section .contact-card,
+  #contact-section .contact-form-wrapper {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  #skills-section .skill-card,
+  #projects-section .project-card.wow,
+  #contact-section .wow {
+    animation: none !important;
+    visibility: visible;
+  }
+
+  #skills-section .skill-progress {
+    width: var(--proficiency);
+    animation: none !important;
+    transition: none;
+  }
+
   .nav-menu-desktop {
     display: none;
   }
