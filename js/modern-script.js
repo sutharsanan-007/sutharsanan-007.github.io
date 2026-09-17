@@ -187,7 +187,7 @@ function startPreloader() {
         setTimeout(() => {
           preloader.remove();
           document.title = myName;
-          new WOW().init();
+          new WOW({ animateClass: "animate__animated" }).init();
         }, 100);
       }
     }, 15);
@@ -534,8 +534,8 @@ function populateServices() {
 
   container.innerHTML = servicesData
     .map(
-      (item) => `
-        <div class="service-card">
+      (item, index) => `
+        <div class="service-card wow animate__fadeInUp" data-wow-delay="${0.12 + index * 0.08}s">
           <img src="${item.image}" alt="${item.name}" loading="eager" decoding="async">
           <h5>${item.name}</h5>
           <p>${item.desc}</p>
@@ -577,8 +577,8 @@ function populateSkills() {
 
   container.innerHTML = skillsData
     .map(
-      (item) => `
-        <div class="skill-card show" style="--proficiency: ${item.proficiency}%">
+      (item, index) => `
+        <div class="skill-card show wow animate__fadeInUp" data-wow-delay="${0.12 + index * 0.08}s" style="--proficiency: ${item.proficiency}%">
           <div class="skill-icon">
             <img src="${item.image}" alt="${item.name}" loading="eager" decoding="async">
           </div>
@@ -645,8 +645,8 @@ function populateProjects() {
 
   container.innerHTML = projectsData
     .map(
-      (item) => `
-        <div class="project-card wow animate__animated animate__fadeInUp">
+      (item, index) => `
+        <div class="project-card wow animate__fadeInUp" data-wow-delay="${0.12 + index * 0.1}s">
           <img src="${item.image}" alt="${item.title}" class="project-image" loading="eager" decoding="async">
           <div class="project-label">
             <h3 class="project-title">${item.title}</h3>
