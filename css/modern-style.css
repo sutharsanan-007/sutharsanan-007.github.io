@@ -1647,6 +1647,18 @@ body {
 
 /* Mobile (480px - 768px) */
 @media (max-width: 768px) {
+  #whatido-section .service-card {
+    background: var(--card-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  #whatido-section .service-card.wow {
+    visibility: visible;
+    animation: none !important;
+  }
+
   .nav-menu-desktop {
     display: none;
   }
