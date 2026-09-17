@@ -532,18 +532,18 @@ const servicesData = [
 
 function populateServices() {
   const container = document.getElementById("services-grid");
-  container.innerHTML = "";
 
-  servicesData.forEach((item) => {
-    const html = `
-      <div class="service-card wow animate__animated animate__fadeInUp">
-        <img src="${item.image}" alt="${item.name}">
-        <h5>${item.name}</h5>
-        <p>${item.desc}</p>
-      </div>
-    `;
-    container.innerHTML += html;
-  });
+  container.innerHTML = servicesData
+    .map(
+      (item) => `
+        <div class="service-card">
+          <img src="${item.image}" alt="${item.name}" loading="eager" decoding="async">
+          <h5>${item.name}</h5>
+          <p>${item.desc}</p>
+        </div>
+      `,
+    )
+    .join("");
 }
 
 // Skills Data
