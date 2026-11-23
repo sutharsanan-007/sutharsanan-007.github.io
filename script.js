@@ -851,6 +851,11 @@ function setupContact() {
       $("#formStatus").textContent =
         "Unable to send your message right now. Please try again.";
     } finally {
+      if (window.hcaptcha && typeof window.hcaptcha.reset === "function") {
+        window.hcaptcha.reset();
+      } else {
+        console.error("hCaptcha reset API is unavailable.");
+      }
       submitButton.disabled = false;
     }
   });
